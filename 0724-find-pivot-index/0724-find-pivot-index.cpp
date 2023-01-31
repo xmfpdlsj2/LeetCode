@@ -1,8 +1,7 @@
 class Solution {
 public:
-    int pivotIndex(vector<int>& nums) 
-    {
-        int sum {}, leftSum{};
+    int pivotIndex(vector<int>& nums) {
+                int sum {}, leftSum{};
         for(auto num : nums)
         {
             sum += num;
