@@ -53,6 +53,5 @@ public:
         }
         std::cout << "true" << std::endl;
         return true;
-        
     }
 };
