@@ -12,28 +12,19 @@ class Solution {
 public:
     ListNode* reverseList(ListNode* head) 
     {
-        if (head == nullptr)
-        {
-            return head;
-        }
         // base case
-        if (head->next == nullptr)
+        if (head == nullptr || head->next == nullptr)
         {
              return head;
         }
 
         // recursive case
         auto next = head;
+        auto nextHead = head->next;
         head = reverseList(head->next);
 
         next->next = nullptr;
-        auto itr = head; 
-
-        while (itr->next != nullptr)
-        {
-             itr = itr->next;
-        }
-        itr->next = next;
+        nextHead->next = next;
 
         return head;
     }
