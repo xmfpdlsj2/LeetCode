@@ -15,7 +15,7 @@ public:
             return nullptr;
         }
         
-        std::map<ListNode*, int> flag {};
+        std::unordered_map<ListNode*, int> flag {};
         
         while (flag[head] < 1)
         {
