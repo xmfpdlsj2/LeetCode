@@ -2,7 +2,7 @@ class Solution {
 public:
     int longestPalindrome(string s) 
     {
-         std::map<char, int> table{};
+         std::unordered_map<char, int> table{};
 	     int lengthOfPalindrome{};
          int oneCheck{};
 
