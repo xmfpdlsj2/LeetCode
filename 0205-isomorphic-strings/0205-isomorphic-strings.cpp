@@ -2,56 +2,40 @@ class Solution {
 public:
     bool isIsomorphic(string s, string t) 
     {
-        std::vector<int> compare;
+        std::vector<int> asciis(128, -1);
+        std::vector<int> asciit(128, -1);
+        std::vector<int> sOrder{};
+        std::vector<int> tOrder{};
 
-        std::map<char, int> ascii;
-        for (int i = 'a'; i < 'z' + 1; i++)
+        int count{};
+        for (int i = 0; i < s.size(); i++)
         {
-            ascii.insert({ static_cast<char>(i), 0 });
-        }
-
-        int count{ 1 };
-        for (auto& e : s)
-        {
-            if (ascii[e] == 0)
+            if (asciis[s[i]] == -1)
             {
-                ascii[e] = count;
-                compare.push_back(count);
+                asciis[s[i]] = count;
+                sOrder.push_back(count);
                 count++;
             }
             else
             {
-                compare.push_back(ascii[e]);
+                sOrder.push_back(asciis[s[i]]);    
             }
         }
 
-        ascii.clear();
-        count = 1;
-        int i{};
-        for (auto& e : t)
+        count = 0;
+        for (int i = 0; i < t.size(); i++)
         {
-            if (ascii[e] == 0)
+            if (asciit[t[i]] == -1)
             {
-                ascii[e] = count;
-
-                if (compare[i] != count)
-                {
-                    std::cout << "false" << std::endl;
-                    return false;
-                }
+                asciit[t[i]] = count;
+                tOrder.push_back(count);
                 count++;
             }
             else
             {
-                if (compare[i] != ascii[e])
-                {
-                    std::cout << "false" << std::endl;
-                    return false;
-                }
+                tOrder.push_back(asciit[t[i]]);    
             }
-            i++;
         }
-        std::cout << "true" << std::endl;
-        return true;
+        return sOrder == tOrder;
     }
 };
