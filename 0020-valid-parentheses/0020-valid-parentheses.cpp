@@ -17,9 +17,8 @@ public:
                 {
                     return false;
                 }
-                char open = brackets.top();
-
-                if (open != brPair[s[i]])
+                
+                if (brackets.top() != brPair[s[i]])
                 {
                     return false;
                 }
