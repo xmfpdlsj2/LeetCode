@@ -8,8 +8,7 @@ public:
         {
             if (nums[i-1] != nums[i])
             {
-                nums[count] = nums[i];
-                count++;
+                nums[count++] = nums[i];
             }
         }
         return count;
