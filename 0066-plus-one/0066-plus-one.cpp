@@ -8,9 +8,9 @@ public:
             {
                 if (i == 0)
                 {
-                    std::vector<int> newOne(digits.size() + 1);
-                    newOne[0] = 1;
-                    return newOne;
+                    digits[i] = 1;
+                    digits.push_back(0);
+                    break;
                 }
                 digits[i] = 0;
             }
