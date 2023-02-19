@@ -2,27 +2,19 @@ class Solution {
 public:
     int lengthOfLongestSubstring(string s) 
     {
-        std::unordered_map<char, int> ascii;
-        std::unordered_map<char, int> index;
+        std::vector<int> ascii(128, 0);
 
-        int longest{}, comp{};
-        
-        for (int i = 0; i < s.size(); i++)
+        int index{}, longest{};
+        for (int i = 0; i < s.size(); i++) 
         {
-            if (++ascii[s[i]] > 1)
+            ascii[s[i]]++;
+            while (ascii[s[i]] > 1)
             {
-                longest = std::max(comp, longest);
-                ascii.clear();
-                comp = 0;
-                i = index[s[i]] + 1;
-                ascii[s[i]]++;
-                index.clear();
+                ascii[s[index]]--;
+                index++;
             }
-            index[s[i]] = i;
-            comp++;
+            longest = std::max(longest, i - index + 1);
         }
-        
-        longest = std::max(comp, longest);
         return longest;
     }
 };
