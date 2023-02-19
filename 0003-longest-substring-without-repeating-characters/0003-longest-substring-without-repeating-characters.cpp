@@ -10,8 +10,7 @@ public:
             ascii[s[i]]++;
             while (ascii[s[i]] > 1)
             {
-                ascii[s[index]]--;
-                index++;
+                ascii[s[index++]]--;
             }
             longest = std::max(longest, i - index + 1);
         }
