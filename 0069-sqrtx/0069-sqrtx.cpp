@@ -2,7 +2,7 @@ class Solution {
 public:
     int mySqrt(int x) 
     {
-        double comp{1};
+        long long comp{1};
         
         while(comp * comp <= x)
         {
