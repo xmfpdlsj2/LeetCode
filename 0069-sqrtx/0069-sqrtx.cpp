@@ -2,13 +2,16 @@ class Solution {
 public:
     int mySqrt(int x) 
     {
-        long long comp{1};
+        int result{};
+        long long comp{}, gap{ 3 };
         
-        while(comp * comp <= x)
+        while(comp < x)
         {
-            comp++;
+            comp += gap;
+            gap += 2;
+            result++;
         }
         
-        return --comp;
+        return result;
     }
 };
