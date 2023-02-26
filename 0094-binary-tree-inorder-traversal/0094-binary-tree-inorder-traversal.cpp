@@ -35,8 +35,6 @@ public:
         {
             GetInOrder(root->right, order);
         }
-
-        return;
     }
     vector<int> inorderTraversal(TreeNode* root) 
     {
