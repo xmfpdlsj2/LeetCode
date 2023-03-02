@@ -3,7 +3,7 @@ public:
     std::vector<int> findBall(std::vector<std::vector<int>>& grid)
     {
         std::vector<int> result{};
-        int m{}, n{}, k{}, l{};
+        int m{}, n{}, k{};
         m = grid.size();
         n = grid[0].size();
 
