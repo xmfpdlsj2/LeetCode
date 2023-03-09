@@ -27,6 +27,10 @@ public:
     }
     int diameterOfBinaryTree(TreeNode* root) 
     {
+        if (root == nullptr)
+        {
+            return 0;
+        }
         Depth(root);
         return max;
     }
