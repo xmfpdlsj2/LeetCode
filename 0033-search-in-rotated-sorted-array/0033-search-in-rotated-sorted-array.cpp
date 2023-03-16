@@ -4,7 +4,7 @@ public:
     {
         
         int size=nums.size();
-        int s=0,e=size-1,m=0;
+        int s{}, e{ size-1 },m{};
         while(s<=e)
         {
             m=s+(e-s)/2;
