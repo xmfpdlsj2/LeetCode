@@ -35,7 +35,6 @@ public:
 
         std::vector<int> nM { -1, 0, 1, 0 };
         std::vector<int> nN { 0, 1, 0, -1 };
-        bool isRott{ false };
         while (!rottPoss.empty())
         {
             int bundle = rottPoss.size();
@@ -52,17 +51,12 @@ public:
                         grid[m][n] = 2;
                         rottPoss.push({ m, n });
                         freshOrange--;
-                        isRott = true;
                     }
                 }
             }
-            if (isRott)
-            {
-                isRott = false;
-                minute++;
-            }
+            minute++;
         }
 
-        return freshOrange != 0 ? -1 : minute;
+        return freshOrange != 0 ? -1 : --minute;
     }
 };
