@@ -10,15 +10,16 @@ class Solution {
 public:
     bool hasCycle(ListNode *head) 
     {
-        std::unordered_map<ListNode*, int> table{};
-        while (head != nullptr)
+        auto fast = head;
+        auto slow = head;
+        while (fast != nullptr && fast->next != nullptr)
         {
-            if (table.count(head) == 1)
+            fast = fast->next->next;
+            slow = slow->next;
+            if (fast == slow)
             {
                 return true;
             }
-            table[head]++;
-            head = head->next;
         }
         return false;
     }
