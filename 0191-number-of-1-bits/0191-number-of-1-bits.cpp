@@ -5,8 +5,7 @@ public:
         int one{ 1 }, ret{};
         for (int i = 0; i < 32; i++)
         {
-            auto a = n & one;
-            if (a == 1)
+            if ((n & one) == 1)
             {
                 ret++;
             }
