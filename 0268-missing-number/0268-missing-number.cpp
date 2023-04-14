@@ -2,22 +2,13 @@ class Solution {
 public:
     int missingNumber(vector<int>& nums) 
     {
-        std::unordered_set<int> table;
-        for (int i = 0; i <= nums.size(); i++)
+        int ret{}, sum{};
+        for (int i = 0; i < nums.size(); i++)
         {
-            table.insert(i);
+            sum += i;
+            ret += nums[i];
         }
-
-        for (auto& e : nums)
-        {
-            table.erase(e);
-        }
-
-        int ret{};
-        for (auto& e : table)
-        {
-            ret = e;
-        }
-        return ret;
+        sum += nums.size();
+        return sum - ret;
     }
 };
