@@ -3,20 +3,13 @@ public:
     int removeElement(vector<int>& nums, int val) 
     {
         int ret{};
-        std::vector<int> retNums{};
-        for (auto& e : nums)
+        for (int i = 0; i < nums.size(); i++)
         {
-            if (e == val)
+            if (nums[i] != val)
             {
-                ret++;
-            }
-            else
-            {
-                retNums.push_back(e);
+                nums[ret++] = nums[i];
             }
         }
-        ret = nums.size() - ret;
-        nums = retNums;
         return ret;
     }
 };
