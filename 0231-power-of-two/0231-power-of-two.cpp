@@ -2,21 +2,9 @@ class Solution {
 public:
     bool isPowerOfTwo(int n) 
     {
-        if (n == 1){
-            return true;
+        if (n <= 0){
+            return false;
         }
-        
-        long long pTwo{ 1 };
-        while(true)
-        {
-            if (pTwo == n){
-                return true;
-            }
-            if (pTwo > n){
-                break;
-            }
-            pTwo = pTwo * 2;
-        }
-        return false;
+        return ((n == 1) || (n % 2 == 0 && isPowerOfTwo(n/2)));
     }
 };
