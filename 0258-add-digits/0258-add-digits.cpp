@@ -2,16 +2,15 @@ class Solution {
 public:
     int addDigits(int num) 
     {
-        while (num >= 10)
+        while(num > 9)
         {
-            int ret{};
-            std::string table{};
-            table = std::to_string(num);
-            for (int i = 0; i < table.length(); i++)
+            int sum{};    
+            while(num > 0)
             {
-                ret += table[i] - '0';
+                sum += (num % 10);
+                num /= 10;
             }
-            num = ret;
+            num = sum;
         }
         return num;
     }
