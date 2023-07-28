@@ -6,11 +6,12 @@ public:
         {
             if (first < nums[i])
             {
-                second = second <= first ? first : second;
+                second = first;
                 first =  nums[i];
                 continue;
             }
-            second = second <= nums[i] ? nums[i] : second;
+            else if(second < nums[i]) second = nums[i];
+            
         }
         return (first - 1) * (second - 1);
     }
