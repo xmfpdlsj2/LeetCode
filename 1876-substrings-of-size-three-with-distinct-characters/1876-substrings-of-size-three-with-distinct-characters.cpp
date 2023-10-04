@@ -1,28 +1,17 @@
 class Solution {
 public:
     int countGoodSubstrings(string s) {
+        if (s.size() < 3)return 0;
         int ret{};
-        std::unordered_set<int> table{};
-        for (int i = 0; i < s.size(); i++)
+        char a = s[0], b = s[1], c = s[2];
+        for (int i = 3; i <= s.size() - 1; i++)
         {
-            bool isGood = true;
-            table.clear();
-            for (int j = i; j < i + 3; j++)
-            {
-                if (j >= s.size()) 
-                {
-                    isGood = false;
-                    break;
-                }
-                if (table.contains(s[j]))
-                {
-                    isGood = false;
-                    break;
-                }
-                table.insert(s[j]);
-            }
-            if (isGood) ret++;
+            if (a != b and b != c and c != a) ret++;
+            a = b;
+            b = c;
+            c = s[i];
         }
+        if (a != b and b != c and c != a) ret++;
         return ret;
     }
 };
