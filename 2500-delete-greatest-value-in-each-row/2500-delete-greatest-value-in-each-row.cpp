@@ -9,7 +9,8 @@ public:
         for (int i = n - 1; i >= 0; i--) 
         {
             int t = 0;
-            for (int j = 0; j < m; j++) {
+            for (int j = 0; j < m; j++) 
+            {
                 t = std::max(grid[j][i], t);
             }
             ans += t;
