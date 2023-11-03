@@ -6,7 +6,8 @@ public:
         {
             sort(grid[i].begin(), grid[i].end());
         }
-        for (int i = n - 1; i >= 0; i--) {
+        for (int i = n - 1; i >= 0; i--) 
+        {
             int t = 0;
             for (int j = 0; j < m; j++) {
                 t = std::max(grid[j][i], t);
