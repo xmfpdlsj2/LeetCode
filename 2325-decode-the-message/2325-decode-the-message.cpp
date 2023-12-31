@@ -1,23 +1,22 @@
 class Solution {
 public:
     string decodeMessage(string key, string message) {
-        unordered_map<char,char> map;
-        char var='a';
-        int i,len=key.size();
-        for(i=0;i<len;i++)
-        {
-            if(key[i]==' ')
-            continue;
-            auto it=map.find(key[i]);
-            if(it==map.end())
-            map[key[i]]=var++;
+       map<char,char> m;
+        char start = 'a';
+        for(auto ch:key){
+            if(ch!=' '&& m[ch]==0){
+                m[ch]=start;
+                start++;
+            }
         }
         string ans;
-        for(i=0;i<message.size();i++)
-        {
-            if(message[i]==' ')
-            ans.push_back(' ');
-            else ans.push_back(map[message[i]]);
+        for(auto ch:message){
+            if(ch==' '){
+                ans.push_back(ch);
+            }
+            else{
+                ans.push_back(m[ch]);
+            }
         }
         return ans;
     }
