@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool digitCount(string num) {
-        unordered_map<int,int> mpp;
+        unordered_map<int, int> mpp;
         for(const auto& i : num)
         {
             mpp[i-'0']++;
