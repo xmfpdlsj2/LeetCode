@@ -15,9 +15,9 @@ public:
     {
         // baseCase
         if(!root) return 0;
+        if(!root->left && !root->right) return isLeft ? root -> val : 0;
 
         // recursiveCase
-        if(!root->left && !root->right) return isLeft ? root -> val : 0;
         return SumOrder(root->left, true) + SumOrder(root->right, false);
     }
     int sumOfLeftLeaves(TreeNode* root) 
